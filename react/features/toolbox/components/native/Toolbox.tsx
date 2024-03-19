@@ -89,7 +89,7 @@ function Toolbox(props: IProps) {
         style.justifyContent = 'center';
     }
 
-    return (
+    return null; (
         <View
             style = { styles.toolboxContainer as ViewStyle }>
             <SafeAreaView

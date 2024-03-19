@@ -50,7 +50,7 @@ ext {
 allprojects {
     repositories {
         // Android JSC is installed from npm.
-        // maven { url("$rootDir/../node_modules/jsc-android/dist") }
+         maven { url("$rootDir/../node_modules/jsc-android/dist") }
         // maven { url "file:/tmp/repo" }
 	mavenCentral()
         google()

@@ -64,6 +64,7 @@ echo "Building and publishing the Jitsi Meet SDK"
 pushd ${THIS_DIR}/../
 ./gradlew clean
 ./gradlew assembleRelease
+#./gradlew assembleDebug
 ./gradlew publish
 popd
 
