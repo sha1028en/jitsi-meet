@@ -85,7 +85,7 @@ function Toolbox(props: IProps) {
     // const style = { ...styles.toolbox };
     
     // remove useless Button
-    // "Rause Hand Up" n "Invite" btn
+    // "Rause Hand Up" btn
     // if (_iAmVisitor) {
     //     additionalButtons.add('raisehand');
     //     style.justifyContent = 'center';
