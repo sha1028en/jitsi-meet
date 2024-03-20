@@ -361,7 +361,7 @@ const Toolbox = ({
             );
         const showRaiseHandInReactionsMenu = showReactionsInOverflowMenu && raiseHandInOverflowMenu;
 
-        return (
+        return null; (
             <div className = { containerClassName }>
                 <div
                     className = 'toolbox-content-wrapper'
