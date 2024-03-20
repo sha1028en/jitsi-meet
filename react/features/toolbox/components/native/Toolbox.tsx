@@ -65,75 +65,78 @@ interface IProps {
  * @returns {React$Element}
  */
 function Toolbox(props: IProps) {
-    const { _endConferenceSupported, _shouldDisplayReactionsButtons, _styles, _visible, _iAmVisitor, _width } = props;
+    return null;
+    // const { _endConferenceSupported, _shouldDisplayReactionsButtons, _styles, _visible, _iAmVisitor, _width } = props;
 
-    if (!_visible) {
-        return null;
-    }
+    // if (!_visible) {
+    //     return null;
+    // }
 
-    const bottomEdge = Platform.OS === 'ios' && _visible;
-    const { buttonStylesBorderless, hangupButtonStyles, toggledButtonStyles } = _styles;
-    const additionalButtons = getMovableButtons(_width);
-    const backgroundToggledStyle = {
-        ...toggledButtonStyles,
-        style: [
-            toggledButtonStyles.style,
-            _styles.backgroundToggle
-        ]
-    };
-    const style = { ...styles.toolbox };
+    // const bottomEdge = Platform.OS === 'ios' && _visible;
+    // const { buttonStylesBorderless, hangupButtonStyles, toggledButtonStyles } = _styles;
+    // const additionalButtons = getMovableButtons(_width);
+    // const backgroundToggledStyle = {
+    //     ...toggledButtonStyles,
+    //     style: [
+    //         toggledButtonStyles.style,
+    //         _styles.backgroundToggle
+    //     ]
+    // };
+    // const style = { ...styles.toolbox };
+    
+    // remove useless Button
+    // "Rause Hand Up" n "Invite" btn
+    // if (_iAmVisitor) {
+    //     additionalButtons.add('raisehand');
+    //     style.justifyContent = 'center';
+    // }
 
-    // we have only hangup and raisehand button in _iAmVisitor mode
-    if (_iAmVisitor) {
-        additionalButtons.add('raisehand');
-        style.justifyContent = 'center';
-    }
+    // return (
+        // ToolBox is Useless
+        // <View
+        //     style = { styles.toolboxContainer as ViewStyle }>
+        //     <SafeAreaView
+        //         accessibilityRole = 'toolbar'
 
-    return null; (
-        <View
-            style = { styles.toolboxContainer as ViewStyle }>
-            <SafeAreaView
-                accessibilityRole = 'toolbar'
-
-                // @ts-ignore
-                edges = { [ bottomEdge && 'bottom' ].filter(Boolean) }
-                pointerEvents = 'box-none'
-                style = { style as ViewStyle }>
-                {!_iAmVisitor && <AudioMuteButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { toggledButtonStyles } />
-                }
-                {!_iAmVisitor && <VideoMuteButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { toggledButtonStyles } />
-                }
-                {additionalButtons.has('chat')
-                    && <ChatButton
-                        styles = { buttonStylesBorderless }
-                        toggledStyles = { backgroundToggledStyle } />
-                }
-                {!_iAmVisitor && additionalButtons.has('screensharing')
-                    && <ScreenSharingButton styles = { buttonStylesBorderless } />}
-                {additionalButtons.has('raisehand') && (_shouldDisplayReactionsButtons
-                    ? <ReactionsMenuButton
-                        styles = { buttonStylesBorderless }
-                        toggledStyles = { backgroundToggledStyle } />
-                    : <RaiseHandButton
-                        styles = { buttonStylesBorderless }
-                        toggledStyles = { backgroundToggledStyle } />)}
-                {additionalButtons.has('tileview') && <TileViewButton styles = { buttonStylesBorderless } />}
-                {!_iAmVisitor && <OverflowMenuButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { toggledButtonStyles } />
-                }
-                { _endConferenceSupported
-                    ? <HangupMenuButton />
-                    : <HangupButton
-                        styles = { hangupButtonStyles } />
-                }
-            </SafeAreaView>
-        </View>
-    );
+        //         // @ts-ignore
+        //         edges = { [ bottomEdge && 'bottom' ].filter(Boolean) }
+        //         pointerEvents = 'box-none'
+        //         style = { style as ViewStyle }>
+        //         {!_iAmVisitor && <AudioMuteButton
+        //             styles = { buttonStylesBorderless }
+        //             toggledStyles = { toggledButtonStyles } />
+        //         }
+        //         {!_iAmVisitor && <VideoMuteButton
+        //             styles = { buttonStylesBorderless }
+        //             toggledStyles = { toggledButtonStyles } />
+        //         }
+        //         {additionalButtons.has('chat')
+        //             && <ChatButton
+        //                 styles = { buttonStylesBorderless }
+        //                 toggledStyles = { backgroundToggledStyle } />
+        //         }
+        //         {!_iAmVisitor && additionalButtons.has('screensharing')
+        //             && <ScreenSharingButton styles = { buttonStylesBorderless } />}
+        //         {additionalButtons.has('raisehand') && (_shouldDisplayReactionsButtons
+        //             ? <ReactionsMenuButton
+        //                 styles = { buttonStylesBorderless }
+        //                 toggledStyles = { backgroundToggledStyle } />
+        //             : <RaiseHandButton
+        //                 styles = { buttonStylesBorderless }
+        //                 toggledStyles = { backgroundToggledStyle } />)}
+        //         {additionalButtons.has('tileview') && <TileViewButton styles = { buttonStylesBorderless } />}
+        //         {!_iAmVisitor && <OverflowMenuButton
+        //             styles = { buttonStylesBorderless }
+        //             toggledStyles = { toggledButtonStyles } />
+        //         }
+        //         { _endConferenceSupported
+        //             ? <HangupMenuButton />
+        //             : <HangupButton
+        //                 styles = { hangupButtonStyles } />
+        //         }
+        //     </SafeAreaView>
+        // </View>
+    // );
 }
 
 /**

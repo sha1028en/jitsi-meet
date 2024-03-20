@@ -349,105 +349,110 @@ const Toolbox = ({
      * @returns {ReactElement}
      */
     function renderToolboxContent() {
-        const toolbarAccLabel = 'toolbar.accessibilityLabel.moreActionsMenu';
-        const containerClassName = `toolbox-content${_isMobile || _isNarrowLayout ? ' toolbox-content-mobile' : ''}`;
+        return null;
 
-        const { mainMenuButtons, overflowMenuButtons } = getVisibleButtons();
-        const raiseHandInOverflowMenu = overflowMenuButtons.some(({ key }) => key === 'raisehand');
-        const showReactionsInOverflowMenu = _shouldDisplayReactionsButtons
-            && (
-                (!_reactionsButtonEnabled && (raiseHandInOverflowMenu || _isNarrowLayout || _isMobile))
-                    || overflowMenuButtons.some(({ key }) => key === 'reactions')
-            );
-        const showRaiseHandInReactionsMenu = showReactionsInOverflowMenu && raiseHandInOverflowMenu;
+        // remove useless Button
+        // "Raise Hand up" n "Invite" Btn
+        // const toolbarAccLabel = 'toolbar.accessibilityLabel.moreActionsMenu';
+        // const containerClassName = `toolbox-content${_isMobile || _isNarrowLayout ? ' toolbox-content-mobile' : ''}`;
 
-        return null; (
-            <div className = { containerClassName }>
-                <div
-                    className = 'toolbox-content-wrapper'
-                    onFocus = { onTabIn }
-                    { ...(_isMobile ? {} : {
-                        onMouseOut,
-                        onMouseOver
-                    }) }>
+        // const { mainMenuButtons, overflowMenuButtons } = getVisibleButtons();
+        // const raiseHandInOverflowMenu = overflowMenuButtons.some(({ key }) => key === 'raisehand');
+        // const showReactionsInOverflowMenu = _shouldDisplayReactionsButtons
+        //     && (
+        //         (!_reactionsButtonEnabled && (raiseHandInOverflowMenu || _isNarrowLayout || _isMobile))
+        //             || overflowMenuButtons.some(({ key }) => key === 'reactions')
+        //     );
+        // const showRaiseHandInReactionsMenu = showReactionsInOverflowMenu && raiseHandInOverflowMenu;
 
-                    <div
-                        className = 'toolbox-content-items'
-                        ref = { _toolboxRef }>
-                        {mainMenuButtons.map(({ Content, key, ...rest }) => Content !== Separator && (
-                            <Content
-                                { ...rest }
-                                buttonKey = { key }
-                                key = { key } />))}
+        // ToolBox is useless
+        // return (
+            // <div className = { containerClassName }>
+            //     <div
+            //         className = 'toolbox-content-wrapper'
+            //         onFocus = { onTabIn }
+            //         { ...(_isMobile ? {} : {
+            //             onMouseOut,
+            //             onMouseOver
+            //         }) }>
 
-                        {Boolean(overflowMenuButtons.length) && (
-                            <OverflowMenuButton
-                                ariaControls = 'overflow-menu'
-                                buttons = { overflowMenuButtons.reduce<Array<IToolboxButton[]>>((acc, val) => {
-                                    if (val.key === 'reactions' && showReactionsInOverflowMenu) {
-                                        return acc;
-                                    }
+            //         <div
+            //             className = 'toolbox-content-items'
+            //             ref = { _toolboxRef }>
+            //             {mainMenuButtons.map(({ Content, key, ...rest }) => Content !== Separator && (
+            //                 <Content
+            //                     { ...rest }
+            //                     buttonKey = { key }
+            //                     key = { key } />))}
 
-                                    if (val.key === 'raisehand' && showRaiseHandInReactionsMenu) {
-                                        return acc;
-                                    }
+            //             {Boolean(overflowMenuButtons.length) && (
+            //                 <OverflowMenuButton
+            //                     ariaControls = 'overflow-menu'
+            //                     buttons = { overflowMenuButtons.reduce<Array<IToolboxButton[]>>((acc, val) => {
+            //                         if (val.key === 'reactions' && showReactionsInOverflowMenu) {
+            //                             return acc;
+            //                         }
 
-                                    if (acc.length) {
-                                        const prev = acc[acc.length - 1];
-                                        const group = prev[prev.length - 1].group;
+            //                         if (val.key === 'raisehand' && showRaiseHandInReactionsMenu) {
+            //                             return acc;
+            //                         }
 
-                                        if (group === val.group) {
-                                            prev.push(val);
-                                        } else {
-                                            acc.push([ val ]);
-                                        }
-                                    } else {
-                                        acc.push([ val ]);
-                                    }
+            //                         if (acc.length) {
+            //                             const prev = acc[acc.length - 1];
+            //                             const group = prev[prev.length - 1].group;
 
-                                    return acc;
-                                }, []) }
-                                isOpen = { _overflowMenuVisible }
-                                key = 'overflow-menu'
-                                onToolboxEscKey = { onEscKey }
-                                onVisibilityChange = { onSetOverflowVisible }
-                                showRaiseHandInReactionsMenu = { showRaiseHandInReactionsMenu }
-                                showReactionsMenu = { showReactionsInOverflowMenu } />
-                        )}
+            //                             if (group === val.group) {
+            //                                 prev.push(val);
+            //                             } else {
+            //                                 acc.push([ val ]);
+            //                             }
+            //                         } else {
+            //                             acc.push([ val ]);
+            //                         }
 
-                        {isButtonEnabled('hangup', _toolbarButtons) && (
-                            _endConferenceSupported
-                                ? <HangupMenuButton
-                                    ariaControls = 'hangup-menu'
-                                    isOpen = { _hangupMenuVisible }
-                                    key = 'hangup-menu'
-                                    notifyMode = { _buttonsWithNotifyClick?.get('hangup-menu') }
-                                    onVisibilityChange = { onSetHangupVisible }>
-                                    <ContextMenu
-                                        accessibilityLabel = { t(toolbarAccLabel) }
-                                        className = { classes.hangupMenu }
-                                        hidden = { false }
-                                        inDrawer = { _overflowDrawer }
-                                        onKeyDown = { onEscKey }>
-                                        <EndConferenceButton
-                                            buttonKey = 'end-meeting'
-                                            notifyMode = { _buttonsWithNotifyClick?.get('end-meeting') } />
-                                        <LeaveConferenceButton
-                                            buttonKey = 'hangup'
-                                            notifyMode = { _buttonsWithNotifyClick?.get('hangup') } />
-                                    </ContextMenu>
-                                </HangupMenuButton>
-                                : <HangupButton
-                                    buttonKey = 'hangup'
-                                    customClass = 'hangup-button'
-                                    key = 'hangup-button'
-                                    notifyMode = { _buttonsWithNotifyClick.get('hangup') }
-                                    visible = { isButtonEnabled('hangup', _toolbarButtons) } />
-                        )}
-                    </div>
-                </div>
-            </div>
-        );
+            //                         return acc;
+            //                     }, []) }
+            //                     isOpen = { _overflowMenuVisible }
+            //                     key = 'overflow-menu'
+            //                     onToolboxEscKey = { onEscKey }
+            //                     onVisibilityChange = { onSetOverflowVisible }
+            //                     showRaiseHandInReactionsMenu = { showRaiseHandInReactionsMenu }
+            //                     showReactionsMenu = { showReactionsInOverflowMenu } />
+            //             )}
+
+            //             {isButtonEnabled('hangup', _toolbarButtons) && (
+            //                 _endConferenceSupported
+            //                     ? <HangupMenuButton
+            //                         ariaControls = 'hangup-menu'
+            //                         isOpen = { _hangupMenuVisible }
+            //                         key = 'hangup-menu'
+            //                         notifyMode = { _buttonsWithNotifyClick?.get('hangup-menu') }
+            //                         onVisibilityChange = { onSetHangupVisible }>
+            //                         <ContextMenu
+            //                             accessibilityLabel = { t(toolbarAccLabel) }
+            //                             className = { classes.hangupMenu }
+            //                             hidden = { false }
+            //                             inDrawer = { _overflowDrawer }
+            //                             onKeyDown = { onEscKey }>
+            //                             <EndConferenceButton
+            //                                 buttonKey = 'end-meeting'
+            //                                 notifyMode = { _buttonsWithNotifyClick?.get('end-meeting') } />
+            //                             <LeaveConferenceButton
+            //                                 buttonKey = 'hangup'
+            //                                 notifyMode = { _buttonsWithNotifyClick?.get('hangup') } />
+            //                         </ContextMenu>
+            //                     </HangupMenuButton>
+            //                     : <HangupButton
+            //                         buttonKey = 'hangup'
+            //                         customClass = 'hangup-button'
+            //                         key = 'hangup-button'
+            //                         notifyMode = { _buttonsWithNotifyClick.get('hangup') }
+            //                         visible = { isButtonEnabled('hangup', _toolbarButtons) } />
+            //             )}
+            //         </div>
+            //     </div>
+            // </div>
+        // );
     }
 
     if (_disabled) {
