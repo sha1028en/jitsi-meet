@@ -80,41 +80,44 @@ class LonelyMeetingExperience extends PureComponent<IProps> {
      * @inheritdoc
      */
     render() {
-        const {
-            _inviteOthersControl,
-            _isInBreakoutRoom,
-            _isInviteFunctionsDisabled,
-            _isLonelyMeeting,
-            t
-        } = this.props;
-        const { color, shareDialogVisible } = _inviteOthersControl;
+        return null;
 
-        if (!_isLonelyMeeting) {
-            return null;
-        }
+        // Invite func is useless.
+        // const {
+        //     _inviteOthersControl,
+        //     _isInBreakoutRoom,
+        //     _isInviteFunctionsDisabled,
+        //     _isLonelyMeeting,
+        //     t
+        // } = this.props;
+        // const { color, shareDialogVisible } = _inviteOthersControl;
 
-        return (
-            <View style = { styles.lonelyMeetingContainer as ViewStyle }>
-                <Text style = { styles.lonelyMessage }>
-                    { t('lonelyMeetingExperience.youAreAlone') }
-                </Text>
-                { !_isInviteFunctionsDisabled && !_isInBreakoutRoom && (
-                    <Button
-                        accessibilityLabel = 'lonelyMeetingExperience.button'
-                        disabled = { shareDialogVisible }
-                        // eslint-disable-next-line react/jsx-no-bind
-                        icon = { () => (
-                            <Icon
-                                color = { color }
-                                size = { 20 }
-                                src = { IconAddUser } />
-                        ) }
-                        labelKey = 'lonelyMeetingExperience.button'
-                        onClick = { this._onPress }
-                        type = { BUTTON_TYPES.PRIMARY } />
-                ) }
-            </View>
-        );
+        // if (!_isLonelyMeeting) {
+        //     return null;
+        // }
+
+        // return (
+        //     <View style = { styles.lonelyMeetingContainer as ViewStyle }>
+        //         <Text style = { styles.lonelyMessage }>
+        //             { t('lonelyMeetingExperience.youAreAlone') }
+        //         </Text>
+        //         { !_isInviteFunctionsDisabled && !_isInBreakoutRoom && (
+        //             <Button
+        //                 accessibilityLabel = 'lonelyMeetingExperience.button'
+        //                 disabled = { shareDialogVisible }
+        //                 // eslint-disable-next-line react/jsx-no-bind
+        //                 icon = { () => (
+        //                     <Icon
+        //                         color = { color }
+        //                         size = { 20 }
+        //                         src = { IconAddUser } />
+        //                 ) }
+        //                 labelKey = 'lonelyMeetingExperience.button'
+        //                 onClick = { this._onPress }
+        //                 type = { BUTTON_TYPES.PRIMARY } />
+        //         ) }
+        //     </View>
+        // );
     }
 
     /**

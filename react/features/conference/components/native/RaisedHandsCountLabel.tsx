@@ -9,17 +9,20 @@ import BaseTheme from '../../../base/ui/components/BaseTheme.native';
 import styles from './styles';
 
 const RaisedHandsCountLabel = () => {
-    const raisedHandsCount = useSelector((state: IReduxState) =>
-        (state['features/base/participants'].raisedHandsQueue || []).length);
+    return null;
 
-    return raisedHandsCount > 0 ? (
-        <Label
-            icon = { IconRaiseHand }
-            iconColor = { BaseTheme.palette.uiBackground }
-            style = { styles.raisedHandsCountLabel }
-            text = { `${raisedHandsCount}` }
-            textStyle = { styles.raisedHandsCountLabelText } />
-    ) : null;
+    // useless func, Raise Hands UP
+    // const raisedHandsCount = useSelector((state: IReduxState) =>
+    //     (state['features/base/participants'].raisedHandsQueue || []).length);
+
+    // return raisedHandsCount > 0 ? (
+    //     <Label
+    //         icon = { IconRaiseHand }
+    //         iconColor = { BaseTheme.palette.uiBackground }
+    //         style = { styles.raisedHandsCountLabel }
+    //         text = { `${raisedHandsCount}` }
+    //         textStyle = { styles.raisedHandsCountLabelText } />
+    // ) : null;
 };
 
 export default RaisedHandsCountLabel;

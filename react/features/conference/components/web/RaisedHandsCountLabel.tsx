@@ -19,27 +19,30 @@ const useStyles = makeStyles()(theme => {
 });
 
 const RaisedHandsCountLabel = () => {
-    const { classes: styles, theme } = useStyles();
-    const dispatch = useDispatch();
-    const raisedHandsCount = useSelector((state: IReduxState) =>
-        (state['features/base/participants'].raisedHandsQueue || []).length);
-    const { t } = useTranslation();
-    const onClick = useCallback(() => {
-        dispatch(openParticipantsPane());
-    }, []);
+    return null;
 
-    return raisedHandsCount > 0 ? (<Tooltip
-        content = { t('raisedHandsLabel') }
-        position = { 'bottom' }>
-        <Label
-            accessibilityText = { t('raisedHandsLabel') }
-            className = { styles.label }
-            icon = { IconRaiseHand }
-            iconColor = { theme.palette.icon04 }
-            id = 'raisedHandsCountLabel'
-            onClick = { onClick }
-            text = { `${raisedHandsCount}` } />
-    </Tooltip>) : null;
+    // useless func, Raise Hands UP
+    // const { classes: styles, theme } = useStyles();
+    // const dispatch = useDispatch();
+    // const raisedHandsCount = useSelector((state: IReduxState) =>
+    //     (state['features/base/participants'].raisedHandsQueue || []).length);
+    // const { t } = useTranslation();
+    // const onClick = useCallback(() => {
+    //     dispatch(openParticipantsPane());
+    // }, []);
+
+    // return raisedHandsCount > 0 ? (<Tooltip
+    //     content = { t('raisedHandsLabel') }
+    //     position = { 'bottom' }>
+    //     <Label
+    //         accessibilityText = { t('raisedHandsLabel') }
+    //         className = { styles.label }
+    //         icon = { IconRaiseHand }
+    //         iconColor = { theme.palette.icon04 }
+    //         id = 'raisedHandsCountLabel'
+    //         onClick = { onClick }
+    //         text = { `${raisedHandsCount}` } />
+    // </Tooltip>) : null;
 };
 
 export default RaisedHandsCountLabel;
