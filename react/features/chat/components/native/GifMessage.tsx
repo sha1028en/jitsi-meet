@@ -14,14 +14,19 @@ interface IProps {
 }
 
 const GifMessage = ({ message }: IProps) => {
-    const url = message.substring(GIF_PREFIX.length, message.length - 1);
+    return null;
 
-    return (<View
-        style = { styles.gifContainer }>
-        <Image
-            source = {{ uri: url }}
-            style = { styles.gifImage as ImageStyle } />
-    </View>);
+    // this project doenst allow Chatting...
+    // also not allow Eomji
+    
+    // const url = message.substring(GIF_PREFIX.length, message.length - 1);
+
+    // return (<View
+    //     style = { styles.gifContainer }>
+    //     <Image
+    //         source = {{ uri: url }}
+    //         style = { styles.gifImage as ImageStyle } />
+    // </View>);
 };
 
 export default GifMessage;

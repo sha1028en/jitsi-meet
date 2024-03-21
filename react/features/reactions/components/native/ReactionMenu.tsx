@@ -37,40 +37,46 @@ function ReactionMenu({
     onCancel,
     overflowMenu
 }: IProps) {
-    const _styles: any = useSelector((state: IReduxState) => ColorSchemeRegistry.get(state, 'Toolbox'));
-    const gifEnabled = useSelector(isGifEnabled);
 
-    const openGifMenu = useCallback(() => {
-        navigate(screen.conference.gifsMenu);
-        onCancel();
-    }, []);
+    return null;
 
-    return (
-        <View style = { overflowMenu ? _styles.overflowReactionMenu : _styles.reactionMenu }>
-            <View style = { _styles.reactionRow }>
-                {
-                    Object.keys(REACTIONS).map(key => (
-                        <ReactionButton
-                            key = { key }
-                            reaction = { key }
-                            styles = { _styles.reactionButton } />
-                    ))
-                }
-                {
-                    gifEnabled && (
-                        <ReactionButton
-                            onClick = { openGifMenu }
-                            styles = { _styles.reactionButton }>
-                            <Image // @ts-ignore
-                                height = { 22 }
-                                source = { require('../../../../../images/GIPHY_icon.png') } />
-                        </ReactionButton>
-                    )
-                }
-            </View>
-            <RaiseHandButton onCancel = { onCancel } />
-        </View>
-    );
+    // useless func, Recation
+    // because, Chatting doenst allow this project...
+
+    // const _styles: any = useSelector((state: IReduxState) => ColorSchemeRegistry.get(state, 'Toolbox'));
+    // const gifEnabled = useSelector(isGifEnabled);
+
+    // const openGifMenu = useCallback(() => {
+    //     navigate(screen.conference.gifsMenu);
+    //     onCancel();
+    // }, []);
+
+    // return (
+    //     <View style = { overflowMenu ? _styles.overflowReactionMenu : _styles.reactionMenu }>
+    //         <View style = { _styles.reactionRow }>
+    //             {
+    //                 Object.keys(REACTIONS).map(key => (
+    //                     <ReactionButton
+    //                         key = { key }
+    //                         reaction = { key }
+    //                         styles = { _styles.reactionButton } />
+    //                 ))
+    //             }
+    //             {
+    //                 gifEnabled && (
+    //                     <ReactionButton
+    //                         onClick = { openGifMenu }
+    //                         styles = { _styles.reactionButton }>
+    //                         <Image // @ts-ignore
+    //                             height = { 22 }
+    //                             source = { require('../../../../../images/GIPHY_icon.png') } />
+    //                     </ReactionButton>
+    //                 )
+    //             }
+    //         </View>
+    //         <RaiseHandButton onCancel = { onCancel } />
+    //     </View>
+    // );
 }
 
 export default ReactionMenu;

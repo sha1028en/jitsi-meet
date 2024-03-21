@@ -53,26 +53,27 @@ class PrivateMessageButton extends AbstractButton<IProps, any> {
     /**
      * Handles clicking / pressing the button.
      *
+     * @deprecated this project doesnt allow Chatting...
      * @private
      * @returns {void}
      */
     _handleClick() {
-        if (this.props._isLobbyMessage) {
-            this.props.dispatch(handleLobbyChatInitialized(this.props.participantID));
-        }
+        // if (this.props._isLobbyMessage) {
+        //     this.props.dispatch(handleLobbyChatInitialized(this.props.participantID));
+        // }
 
-        this.props.dispatch(openChat(this.props._participant));
+        // this.props.dispatch(openChat(this.props._participant));
 
-        this.props._isPollsDisabled
-            ? navigate(screen.conference.chat, {
-                privateMessageRecipient: this.props._participant
-            })
-            : navigate(screen.conference.chatandpolls.main, {
-                screen: screen.conference.chatandpolls.tab.chat,
-                params: {
-                    privateMessageRecipient: this.props._participant
-                }
-            });
+        // this.props._isPollsDisabled
+        //     ? navigate(screen.conference.chat, {
+        //         privateMessageRecipient: this.props._participant
+        //     })
+        //     : navigate(screen.conference.chatandpolls.main, {
+        //         screen: screen.conference.chatandpolls.tab.chat,
+        //         params: {
+        //             privateMessageRecipient: this.props._participant
+        //         }
+        //     });
     }
 
     /**

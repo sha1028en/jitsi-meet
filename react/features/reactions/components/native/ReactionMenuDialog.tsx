@@ -80,26 +80,31 @@ class ReactionMenuDialog extends PureComponent<IProps> {
      * @returns {ReactElement}
      */
     render() {
-        const { _styles, _width, _height, _participantCount } = this.props;
+        return null;
 
-        return (
-            <SafeAreaView style = { _styles }>
-                <TouchableWithoutFeedback
-                    onPress = { this._onCancel }>
-                    <View style = { _styles }>
-                        <View
-                            style = {{
-                                left: (_width - 360) / 2,
-                                top: _height - (_participantCount > 1 ? 144 : 80) - 80
-                            }}>
-                            <ReactionMenu
-                                onCancel = { this._onCancel }
-                                overflowMenu = { false } />
-                        </View>
-                    </View>
-                </TouchableWithoutFeedback>
-            </SafeAreaView>
-        );
+        // useless func, Reaction
+        // Chatting doesnt allow this project...
+
+        // const { _styles, _width, _height, _participantCount } = this.props;
+
+        // return (
+        //     <SafeAreaView style = { _styles }>
+        //         <TouchableWithoutFeedback
+        //             onPress = { this._onCancel }>
+        //             <View style = { _styles }>
+        //                 <View
+        //                     style = {{
+        //                         left: (_width - 360) / 2,
+        //                         top: _height - (_participantCount > 1 ? 144 : 80) - 80
+        //                     }}>
+        //                     <ReactionMenu
+        //                         onCancel = { this._onCancel }
+        //                         overflowMenu = { false } />
+        //                 </View>
+        //             </View>
+        //         </TouchableWithoutFeedback>
+        //     </SafeAreaView>
+        // );
     }
 
     /**

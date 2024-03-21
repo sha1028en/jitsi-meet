@@ -74,38 +74,43 @@ class ChatInputBar extends Component<IProps, IState> {
      * @inheritdoc
      */
     render() {
-        let inputBarStyles;
+        return null;
 
-        if (this.props.aspectRatio === ASPECT_RATIO_WIDE) {
-            inputBarStyles = styles.inputBarWide;
-        } else {
-            inputBarStyles = styles.inputBarNarrow;
-        }
+        // useless func Chat
+        // this project doesnt allow Chatting...
 
-        return (
-            <View
-                style = { [
-                    inputBarStyles,
-                    this.state.addPadding ? styles.extraBarPadding : null
-                ] as ViewStyle[] }>
-                <Input
-                    blurOnSubmit = { false }
-                    customStyles = {{ container: styles.customInputContainer }}
-                    multiline = { false }
-                    onBlur = { this._onFocused(false) }
-                    onChange = { this._onChangeText }
-                    onFocus = { this._onFocused(true) }
-                    onSubmitEditing = { this._onSubmit }
-                    placeholder = { this.props.t('chat.fieldPlaceHolder') }
-                    returnKeyType = 'send'
-                    value = { this.state.message } />
-                <IconButton
-                    disabled = { !this.state.message }
-                    onPress = { this._onSubmit }
-                    src = { IconSend }
-                    type = { BUTTON_TYPES.PRIMARY } />
-            </View>
-        );
+        // let inputBarStyles;
+
+        // if (this.props.aspectRatio === ASPECT_RATIO_WIDE) {
+        //     inputBarStyles = styles.inputBarWide;
+        // } else {
+        //     inputBarStyles = styles.inputBarNarrow;
+        // }
+
+        // return (
+        //     <View
+        //         style = { [
+        //             inputBarStyles,
+        //             this.state.addPadding ? styles.extraBarPadding : null
+        //         ] as ViewStyle[] }>
+        //         <Input
+        //             blurOnSubmit = { false }
+        //             customStyles = {{ container: styles.customInputContainer }}
+        //             multiline = { false }
+        //             onBlur = { this._onFocused(false) }
+        //             onChange = { this._onChangeText }
+        //             onFocus = { this._onFocused(true) }
+        //             onSubmitEditing = { this._onSubmit }
+        //             placeholder = { this.props.t('chat.fieldPlaceHolder') }
+        //             returnKeyType = 'send'
+        //             value = { this.state.message } />
+        //         <IconButton
+        //             disabled = { !this.state.message }
+        //             onPress = { this._onSubmit }
+        //             src = { IconSend }
+        //             type = { BUTTON_TYPES.PRIMARY } />
+        //     </View>
+        // );
     }
 
     /**

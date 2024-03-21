@@ -111,67 +111,70 @@ class OverflowMenu extends PureComponent<IProps, IState> {
      * @returns {ReactElement}
      */
     render() {
-        const {
-            _isBreakoutRoomsSupported,
-            _isSpeakerStatsDisabled,
-            _shouldDisplayReactionsButtons,
-            _width,
-            dispatch
-        } = this.props;
-        const toolbarButtons = getMovableButtons(_width);
+        return null;
+        
+        // BottomSheet doenst allow this project.
+        // const {
+        //     _isBreakoutRoomsSupported,
+        //     _isSpeakerStatsDisabled,
+        //     _shouldDisplayReactionsButtons,
+        //     _width,
+        //     dispatch
+        // } = this.props;
+        // const toolbarButtons = getMovableButtons(_width);
 
-        const buttonProps = {
-            afterClick: this._onCancel,
-            showLabel: true,
-            styles: bottomSheetStyles.buttons
-        };
+        // const buttonProps = {
+        //     afterClick: this._onCancel,
+        //     showLabel: true,
+        //     styles: bottomSheetStyles.buttons
+        // };
 
-        const topButtonProps = {
-            afterClick: this._onCancel,
-            dispatch,
-            showLabel: true,
-            styles: {
-                ...bottomSheetStyles.buttons,
-                style: {
-                    ...bottomSheetStyles.buttons.style,
-                    borderTopLeftRadius: 16,
-                    borderTopRightRadius: 16
-                }
-            }
-        };
+        // const topButtonProps = {
+        //     afterClick: this._onCancel,
+        //     dispatch,
+        //     showLabel: true,
+        //     styles: {
+        //         ...bottomSheetStyles.buttons,
+        //         style: {
+        //             ...bottomSheetStyles.buttons.style,
+        //             borderTopLeftRadius: 16,
+        //             borderTopRightRadius: 16
+        //         }
+        //     }
+        // };
 
-        return (
-            <BottomSheet
-                renderFooter = { _shouldDisplayReactionsButtons && !toolbarButtons.has('raisehand')
-                    ? this._renderReactionMenu
-                    : undefined }>
-                <OpenCarmodeButton { ...topButtonProps } />
-                <AudioOnlyButton { ...buttonProps } />
-                {
-                    !_shouldDisplayReactionsButtons && !toolbarButtons.has('raisehand')
-                        && <RaiseHandButton { ...buttonProps } />
-                }
-                {/* @ts-ignore */}
-                <Divider style = { styles.divider as ViewStyle } />
-                <SecurityDialogButton { ...buttonProps } />
-                <RecordButton { ...buttonProps } />
-                <LiveStreamButton { ...buttonProps } />
-                <LinkToSalesforceButton { ...buttonProps } />
-                <WhiteboardButton { ...buttonProps } />
-                {/* @ts-ignore */}
-                <Divider style = { styles.divider as ViewStyle } />
-                <SharedVideoButton { ...buttonProps } />
-                {!toolbarButtons.has('screensharing') && <ScreenSharingButton { ...buttonProps } />}
-                {!_isSpeakerStatsDisabled && <SpeakerStatsButton { ...buttonProps } />}
-                {!toolbarButtons.has('tileview') && <TileViewButton { ...buttonProps } />}
-                {_isBreakoutRoomsSupported && <BreakoutRoomsButton { ...buttonProps } />}
-                {/* @ts-ignore */}
-                <Divider style = { styles.divider as ViewStyle } />
-                <ClosedCaptionButton { ...buttonProps } />
-                <SharedDocumentButton { ...buttonProps } />
-                <SettingsButton { ...buttonProps } />
-            </BottomSheet>
-        );
+        // return (
+        //     <BottomSheet
+        //         renderFooter = { _shouldDisplayReactionsButtons && !toolbarButtons.has('raisehand')
+        //             ? this._renderReactionMenu
+        //             : undefined }>
+        //         <OpenCarmodeButton { ...topButtonProps } />
+        //         <AudioOnlyButton { ...buttonProps } />
+        //         {
+        //             !_shouldDisplayReactionsButtons && !toolbarButtons.has('raisehand')
+        //                 && <RaiseHandButton { ...buttonProps } />
+        //         }
+        //         {/* @ts-ignore */}
+        //         <Divider style = { styles.divider as ViewStyle } />
+        //         <SecurityDialogButton { ...buttonProps } />
+        //         <RecordButton { ...buttonProps } />
+        //         <LiveStreamButton { ...buttonProps } />
+        //         <LinkToSalesforceButton { ...buttonProps } />
+        //         <WhiteboardButton { ...buttonProps } />
+        //         {/* @ts-ignore */}
+        //         <Divider style = { styles.divider as ViewStyle } />
+        //         <SharedVideoButton { ...buttonProps } />
+        //         {!toolbarButtons.has('screensharing') && <ScreenSharingButton { ...buttonProps } />}
+        //         {!_isSpeakerStatsDisabled && <SpeakerStatsButton { ...buttonProps } />}
+        //         {!toolbarButtons.has('tileview') && <TileViewButton { ...buttonProps } />}
+        //         {_isBreakoutRoomsSupported && <BreakoutRoomsButton { ...buttonProps } />}
+        //         {/* @ts-ignore */}
+        //         <Divider style = { styles.divider as ViewStyle } />
+        //         <ClosedCaptionButton { ...buttonProps } />
+        //         <SharedDocumentButton { ...buttonProps } />
+        //         <SettingsButton { ...buttonProps } />
+        //     </BottomSheet>
+        // );
     }
 
     /**

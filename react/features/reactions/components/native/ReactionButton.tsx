@@ -82,24 +82,29 @@ function ReactionButton({
     reaction,
     t
 }: IProps) {
-    const dispatch = useDispatch();
-    const _onClick = useCallback(() => {
-        if (reaction) {
-            dispatch(addReactionToBuffer(reaction));
-            sendAnalytics(createReactionMenuEvent(reaction));
-        }
-    }, [ reaction ]);
+    return null;
 
-    return (
-        <TouchableHighlight
-            accessibilityLabel = { t(`toolbar.accessibilityLabel.${reaction}`) }
-            accessibilityRole = 'button'
-            onPress = { onClick || _onClick }
-            style = { [ styles.style, children && styles?.gifButton ] as ViewStyle[] }
-            underlayColor = { styles.underlayColor }>
-            {children ?? <Text style = { styles.emoji }>{REACTIONS[reaction ?? ''].emoji}</Text>}
-        </TouchableHighlight>
-    );
+    // useless func Recation
+    // Chatting doesnt allow this project...
+
+    // const dispatch = useDispatch();
+    // const _onClick = useCallback(() => {
+    //     if (reaction) {
+    //         dispatch(addReactionToBuffer(reaction));
+    //         sendAnalytics(createReactionMenuEvent(reaction));
+    //     }
+    // }, [ reaction ]);
+
+    // return (
+    //     <TouchableHighlight
+    //         accessibilityLabel = { t(`toolbar.accessibilityLabel.${reaction}`) }
+    //         accessibilityRole = 'button'
+    //         onPress = { onClick || _onClick }
+    //         style = { [ styles.style, children && styles?.gifButton ] as ViewStyle[] }
+    //         underlayColor = { styles.underlayColor }>
+    //         {children ?? <Text style = { styles.emoji }>{REACTIONS[reaction ?? ''].emoji}</Text>}
+    //     </TouchableHighlight>
+    // );
 }
 
 export default translate(ReactionButton);

@@ -63,27 +63,29 @@ class MessageRecipient extends AbstractMessageRecipient<IProps> {
     /**
      * Resets lobby message recipient from state.
      *
+     * @deprecated this project doesnt allow Chatting...
      * @returns {void}
      */
     _onResetLobbyMessageRecipient() {
-        const { dispatch } = this.props;
+        // const { dispatch } = this.props;
 
-        dispatch(setLobbyChatActiveState(false));
+        // dispatch(setLobbyChatActiveState(false));
     }
 
     /**
      * Resets private message recipient from state.
-     *
+     * @deprecated this project doesnt allow Chatting...
+     * 
      * @returns {void}
      */
     _onResetPrivateMessageRecipient() {
-        const { dispatch } = this.props;
+        // const { dispatch } = this.props;
 
-        dispatch(setPrivateMessageRecipient());
+        // dispatch(setPrivateMessageRecipient());
 
-        setParams({
-            privateMessageRecipient: undefined
-        });
+        // setParams({
+        //     privateMessageRecipient: undefined
+        // });
     }
 
     /**
@@ -93,57 +95,62 @@ class MessageRecipient extends AbstractMessageRecipient<IProps> {
      * @returns {ReactElement}
      */
     render() {
-        const {
-            isLobbyChatActive,
-            lobbyMessageRecipient,
-            privateMessageRecipient,
-            t
-        } = this.props;
+        return null;
+        
+        // this project doenst allow Chatting, Emoji...
 
-        if (isLobbyChatActive) {
-            return (
-                <View style = { styles.lobbyMessageRecipientContainer as ViewStyle }>
-                    <Text style = { styles.messageRecipientText }>
-                        { t('chat.lobbyChatMessageTo', {
-                            recipient: lobbyMessageRecipient?.name
-                        }) }
-                    </Text>
-                    <TouchableHighlight
-                        onPress = { this._onResetLobbyMessageRecipient }>
-                        <Icon
-                            src = { IconCloseLarge }
-                            style = { styles.messageRecipientCancelIcon } />
-                    </TouchableHighlight>
-                </View>
-            );
-        }
+        // const {
+        //     isLobbyChatActive,
+        //     lobbyMessageRecipient,
+        //     privateMessageRecipient,
+        //     t
+        // } = this.props;
 
-        if (!privateMessageRecipient) {
-            return null;
-        }
+        // if (isLobbyChatActive) {
+        //     return (
+        //         <View style = { styles.lobbyMessageRecipientContainer as ViewStyle }>
+        //             <Text style = { styles.messageRecipientText }>
+        //                 { t('chat.lobbyChatMessageTo', {
+        //                     recipient: lobbyMessageRecipient?.name
+        //                 }) }
+        //             </Text>
+        //             <TouchableHighlight
+        //                 onPress = { this._onResetLobbyMessageRecipient }>
+        //                 <Icon
+        //                     src = { IconCloseLarge }
+        //                     style = { styles.messageRecipientCancelIcon } />
+        //             </TouchableHighlight>
+        //         </View>
+        //     );
+        // }
 
-        return (
-            <View style = { styles.messageRecipientContainer as ViewStyle }>
-                <Text style = { styles.messageRecipientText }>
-                    { t('chat.messageTo', {
-                        recipient: privateMessageRecipient.name
-                    }) }
-                </Text>
-                <TouchableHighlight
-                    onPress = { this._onResetPrivateMessageRecipient }
-                    underlayColor = { 'transparent' }>
-                    <Icon
-                        src = { IconCloseLarge }
-                        style = { styles.messageRecipientCancelIcon } />
-                </TouchableHighlight>
-            </View>
-        );
+        // if (!privateMessageRecipient) {
+        //     return null;
+        // }
+
+        // return (
+        //     <View style = { styles.messageRecipientContainer as ViewStyle }>
+        //         <Text style = { styles.messageRecipientText }>
+        //             { t('chat.messageTo', {
+        //                 recipient: privateMessageRecipient.name
+        //             }) }
+        //         </Text>
+        //         <TouchableHighlight
+        //             onPress = { this._onResetPrivateMessageRecipient }
+        //             underlayColor = { 'transparent' }>
+        //             <Icon
+        //                 src = { IconCloseLarge }
+        //                 style = { styles.messageRecipientCancelIcon } />
+        //         </TouchableHighlight>
+        //     </View>
+        // );
     }
 }
 
 /**
  * Maps part of the redux state to the props of this component.
  *
+ * @deprecated this project doesnt allow Chatting...
  * @param {Object} state - The Redux state.
  * @param {any} _ownProps - Component's own props.
  * @returns {IProps}

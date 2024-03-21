@@ -123,21 +123,26 @@ class RaiseHandButton extends Component<IProps> {
      * @returns {ReactElement}
      */
     render() {
-        const { _enabled } = this.props;
+        return null;
 
-        if (!_enabled) {
-            return null;
-        }
+        // useless func, Raise Hands UP
+        // chatting doesnt allow this project...
+        
+        // const { _enabled } = this.props;
 
-        return (
-            <Button
-                accessibilityLabel = { this.accessibilityLabel }
-                icon = { this._renderRaiseHandEmoji }
-                labelKey = { this._getLabel() }
-                onClick = { this._onClick }
-                style = { styles.raiseHandButton }
-                type = { BUTTON_TYPES.SECONDARY } />
-        );
+        // if (!_enabled) {
+        //     return null;
+        // }
+
+        // return (
+        //     <Button
+        //         accessibilityLabel = { this.accessibilityLabel }
+        //         icon = { this._renderRaiseHandEmoji }
+        //         labelKey = { this._getLabel() }
+        //         onClick = { this._onClick }
+        //         style = { styles.raiseHandButton }
+        //         type = { BUTTON_TYPES.SECONDARY } />
+        // );
     }
 }
 
