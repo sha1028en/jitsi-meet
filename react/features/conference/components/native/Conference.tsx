@@ -10,7 +10,10 @@ import {
     ViewStyle
 } from 'react-native';
 import { EdgeInsets, withSafeAreaInsets } from 'react-native-safe-area-context';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
+
+import AudioMuteButton from '../../../toolbox/components/native/AudioMuteButton';
+import VideoMuteButton from '../../../toolbox/components/native/VideoMuteButton';
 
 import { appNavigate } from '../../../app/actions.native';
 import { IReduxState, IStore } from '../../../app/types';
@@ -467,12 +470,10 @@ class Conference extends AbstractConference<IProps, State> {
                 </SafeAreaView>
 
                 <TestConnectionInfo />
-
                 {
-                    _shouldDisplayTileView
-                    && <>
-                        { this._renderNotificationsContainer() }
-                        <Toolbox />
+                    // TODO custom btn here!
+                    <> 
+                       { this._renderConferenceControllContainer() } 
                     </>
                 }
             </>
@@ -499,6 +500,36 @@ class Conference extends AbstractConference<IProps, State> {
                         </TintedView>
                 }
             </>
+        );
+    }
+
+    _renderConferenceControllContainer() {
+        // const aspectRatio = useSelector(
+        //     (state: IReduxState) => state['features/base/responsive-ui']?.aspectRatio
+        // );
+
+        // let contentWrapperStyles;
+        // let contentContainerStyles;
+
+        // if (aspectRatio === ASPECT_RATIO_NARROW) {
+        // let contentWrapperStyles = styles.contentWrapper;
+        let contentContainerStyles = styles.contentContainer;
+        
+        // } else {
+        //     contentWrapperStyles = styles.contentWrapperWide;
+        //     contentContainerStyles = styles.contentContainerWide;
+        // }
+
+        return (
+            <View style = { contentContainerStyles as ViewStyle }>
+                <View style = { styles.toolboxContainer as ViewStyle }>
+                    <AudioMuteButton
+                        styles = { styles.buttonStylesBorderless } />
+                    
+                    <VideoMuteButton
+                        styles = { styles.buttonStylesBorderless } />    
+                </View>
+            </View>
         );
     }
 

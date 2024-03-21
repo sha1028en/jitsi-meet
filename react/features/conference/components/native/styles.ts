@@ -43,6 +43,66 @@ export default {
         flex: 1
     },
 
+    contentWrapper: {
+        flex: 1,
+        flexDirection: 'row'
+    },
+
+    contentWrapperWide: {
+        flex: 1,
+        flexDirection: 'row'
+    },
+
+    contentContainer: {
+        alignItems: 'center',
+        // backgroundColor: BaseTheme.palette.uiBackground,
+        bottom: 0,
+        display: 'flex',
+        height: 280,
+        justifyContent: 'center',
+        position: 'absolute',
+        width: '100%',
+        zIndex: 1
+    },
+
+    contentContainerWide: {
+        alignItems: 'center',
+        height: '100%',
+        justifyContent: 'center',
+        left: '50%',
+        padding: BaseTheme.spacing[3],
+        position: 'absolute',
+        width: '50%'
+    },
+
+    toolboxContainer: {
+        alignItems: 'center',
+        backgroundColor: BaseTheme.palette.ui01,
+        borderRadius: BaseTheme.shape.borderRadius,
+        display: 'flex',
+        flexDirection: 'row',
+        height: 60,
+        justifyContent: 'space-between',
+        marginBottom: BaseTheme.spacing[3],
+        paddingHorizontal: BaseTheme.spacing[2],
+        width: 148
+    },
+
+    buttonStylesBorderless: {
+        iconStyle: {
+            color: BaseTheme.palette.icon01,
+            fontSize: 24
+        },
+        style: {
+            flexDirection: 'row',
+            justifyContent: 'center',
+            margin: BaseTheme.spacing[3],
+            height: 24,
+            width: 24
+        },
+        underlayColor: 'transparent'
+    },
+
     displayNameContainer: {
         margin: 10
     },
