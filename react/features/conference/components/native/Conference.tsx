@@ -14,6 +14,8 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 
 import AudioMuteButton from '../../../toolbox/components/native/AudioMuteButton';
 import VideoMuteButton from '../../../toolbox/components/native/VideoMuteButton';
+import ToggleCameraButton from '../../../toolbox/components/native/ToggleCameraButton';
+
 
 import { appNavigate } from '../../../app/actions.native';
 import { IReduxState, IStore } from '../../../app/types';
@@ -59,6 +61,7 @@ import LonelyMeetingExperience from './LonelyMeetingExperience';
 import TitleBar from './TitleBar';
 import { EXPANDED_LABEL_TIMEOUT } from './constants';
 import styles from './styles';
+import HangupButton from '../../../toolbox/components/HangupButton';
 
 /**
  * The type of the React {@code Component} props of {@link Conference}.
@@ -528,6 +531,12 @@ class Conference extends AbstractConference<IProps, State> {
                     
                     <VideoMuteButton
                         styles = { styles.buttonStylesBorderless } />    
+
+                    <ToggleCameraButton 
+                        styles = { styles.buttonStylesBorderless } />    
+                
+                    <HangupButton 
+                        styles = { styles.buttonStylesBorderless }/>
                 </View>
             </View>
         );

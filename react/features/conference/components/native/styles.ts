@@ -85,7 +85,7 @@ export default {
         justifyContent: 'space-between',
         marginBottom: BaseTheme.spacing[3],
         paddingHorizontal: BaseTheme.spacing[2],
-        width: 148
+        width: 296
     },
 
     buttonStylesBorderless: {
